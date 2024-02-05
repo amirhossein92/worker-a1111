@@ -30,6 +30,7 @@ GitPython==3.1.37
 pyngrok==7.0.0
 
 # Web and Networking Libraries
+httpx==0.24.1
 httpcore==0.15
 inflection==0.5.1
 jsonmerge==1.8.0
