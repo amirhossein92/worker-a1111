@@ -30,11 +30,11 @@ def wait_for_service(url):
         time.sleep(0.2)
 
 
-def run_inference(inference_request):
+def run_inference(inference_request, type):
     '''
     Run inference on a request.
     '''
-    response = automatic_session.post(url=f'{LOCAL_URL}/txt2img',
+    response = automatic_session.post(url=f'{LOCAL_URL}/{type}',
                                       json=inference_request, timeout=600)
     return response.json()
 
@@ -47,7 +47,7 @@ def handler(event):
     This is the handler function that will be called by the serverless.
     '''
 
-    json = run_inference(event["input"])
+    json = run_inference(event["input"], event["input_type"])
 
     # return the output that you want to be returned like pre-signed URLs to output artifacts
     return json
