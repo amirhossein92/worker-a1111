@@ -58,9 +58,9 @@ RUN apk add --no-cache wget && \
 RUN apk add --no-cache wget && \
     mkdir /Embeddings && \
     # Download Easy Negative Embeddings (https://civitai.com/models/7808)
-    wget -q -O /Embeddings/easynegative.safetensors https://civitai.com/api/download/models/9208?type=Model&format=SafeTensor&size=full&fp=fp16 && \
+    wget -q -O /Embeddings/easynegative.safetensors https://civitai.com/api/download/models/9208 && \
     # Download Fast Negative Embeddings (https://civitai.com/models/71961)
-    wget -q -O /Embeddings/FastNegativeV2.pt https://civitai.com/api/download/models/94057?type=Model&format=PickleTensor && \
+    wget -q -O /Embeddings/FastNegativeV2.pt https://civitai.com/api/download/models/94057 && \
     # Download Beyond Negative Embeddings (https://civitai.com/models/108821)
     wget -q -O /Embeddings/Beyondv4-neg.pt https://civitai.com/api/download/models/301684
 
