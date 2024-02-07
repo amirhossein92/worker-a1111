@@ -30,11 +30,11 @@ def wait_for_service(url):
         time.sleep(0.2)
 
 
-def run_inference(inference_request, type):
+def run_inference(inference_request, endpoint_path):
     '''
     Run inference on a request.
     '''
-    response = automatic_session.post(url=f'{LOCAL_URL}/{type}',
+    response = automatic_session.post(url=f'{LOCAL_URL}/{endpoint_path}',
                                       json=inference_request, timeout=600)
     return response.json()
 
@@ -47,14 +47,14 @@ def handler(event):
     This is the handler function that will be called by the serverless.
     '''
 
-    json = run_inference(event["input"], event["input_type"])
+    json = run_inference(event["input"], event["input"]["endpoint_path"])
 
     # return the output that you want to be returned like pre-signed URLs to output artifacts
     return json
 
 
 if __name__ == "__main__":
-    wait_for_service(url=f'{LOCAL_URL}/txt2img')
+    # wait_for_service(url=f'{LOCAL_URL}/txt2img')
 
     print("WebUI API Service is ready. Starting RunPod...")
 
