@@ -24,6 +24,8 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
 RUN apk add --no-cache wget && \
     wget -q -O /model.safetensors https://civitai.com/api/download/models/128713
 
+RUN mkdir /lora && mkdir /Embeddings
+
 # Download Detail Tweaker LoRA (https://civitai.com/models/58390)
 RUN apk add --no-cache wget && \
     wget -q -O /lora/add_detail.safetensors https://civitai.com/api/download/models/62833
