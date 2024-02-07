@@ -20,9 +20,74 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
     . /clone.sh clip-interrogator https://github.com/pharmapsychotic/clip-interrogator 2486589f24165c8e3b303f84e9dbbea318df83e8 && \
     . /clone.sh generative-models https://github.com/Stability-AI/generative-models 45c443b316737a4ab6e40413d7794a7f5657c19f
 
+# Download Dreamshaper v8 model
 RUN apk add --no-cache wget && \
     wget -q -O /model.safetensors https://civitai.com/api/download/models/128713
 
+# Download Detail Tweaker LoRA (https://civitai.com/models/58390)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/add_detail.safetensors https://civitai.com/api/download/models/62833
+
+# Download 3D rendering style LoRA (https://civitai.com/models/73756)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/3d_render_style.safetensors https://civitai.com/api/download/models/107366
+
+# Download Anime Line Art LoRA (https://civitai.com/models/16014)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/anime_outline.safetensors https://civitai.com/api/download/models/28907
+
+# Download Vector Illustration LoRA (https://civitai.com/models/60132)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/vector_illustration.safetensors https://civitai.com/api/download/models/198960
+
+# Download Ink LoRA (https://civitai.com/models/78605)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/ink_scenery.safetensors https://civitai.com/api/download/models/83390
+
+# Download Sticker LoRA (https://civitai.com/models/76413)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/stickers.safetensors https://civitai.com/api/download/models/81187
+
+# Download Food Photography LoRA (https://civitai.com/models/45322)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/food_photography.safetensors https://civitai.com/api/download/models/49946
+
+# Download Oil Brush LoRA (https://civitai.com/models/84542)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/oil_brush.safetensors https://civitai.com/api/download/models/94277
+
+# Download Pixel LoRA (https://civitai.com/models/44960)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/pixel.safetensors https://civitai.com/api/download/models/52870
+
+# Download Product Design LoRA (https://civitai.com/models/58247)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/product_design.safetensors https://civitai.com/api/download/models/62704
+
+# Download Epi Noise Offset LoRA (https://civitai.com/models/13941)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/epi_noise_offset.safetensors https://civitai.com/api/download/models/16576?type=Model&format=SafeTensor&size=full&fp=fp16
+
+# Download Better eyes, face and skin LoRA (https://civitai.com/models/51430)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/better_eyes_face.safetensors https://civitai.com/api/download/models/55905
+
+# Download Kids Illustration LoRA (https://civitai.com/models/60724)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/67980?type=Model&format=SafeTensor
+
+
+# Download Easy Negative Embeddings (https://civitai.com/models/7808)
+RUN apk add --no-cache wget && \
+    wget -q -O /Embeddings/easynegative.safetensors https://civitai.com/api/download/models/9208?type=Model&format=SafeTensor&size=full&fp=fp16
+
+# Download Fast Negative Embeddings (https://civitai.com/models/71961)
+RUN apk add --no-cache wget && \
+    wget -q -O /Embeddings/FastNegativeV2.pt https://civitai.com/api/download/models/94057?type=Model&format=PickleTensor
+
+# Download Beyond Negative Embeddings (https://civitai.com/models/108821)
+RUN apk add --no-cache wget && \
+    wget -q -O /Embeddings/Beyondv4-neg.pt https://civitai.com/api/download/models/301684
 
 
 # ---------------------------------------------------------------------------- #
@@ -59,6 +124,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 COPY --from=download /repositories/ ${ROOT}/repositories/
 COPY --from=download /model.safetensors /model.safetensors
+COPY --from=download /lora /models/Lora
+COPY --from=download /Embeddings /embeddings
 RUN mkdir ${ROOT}/interrogate && cp ${ROOT}/repositories/clip-interrogator/data/* ${ROOT}/interrogate
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install -r ${ROOT}/repositories/CodeFormer/requirements.txt
