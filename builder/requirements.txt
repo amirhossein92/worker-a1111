@@ -43,10 +43,9 @@ piexif==1.1.3
 psutil==5.9.5
 resize-right==0.0.2
 tomesd==0.1.3
-open-clip-torch==2.20.0
 
 # Direct Git Dependencies
 # These dependencies are directly cloned from GitHub. Ensure the specified commits/tags are compatible.
 git+https://github.com/TencentARC/GFPGAN.git@8d2447a2d918f8eba5a4a01463fd48e45126a379
 git+https://github.com/openai/CLIP.git@d50d76daa670286dd6cacf3bcd80b5e4823fc8e1
-git+https://github.com/mlfoundations/open_clip.git@bb6e834e9c70d9c27d0dc3ecedeebeaeb1ffad6b
+git+https://github.com/mlfoundations/open_clip.git@695c72d1ef1c3044404bb5579ea25e2051658c2d
