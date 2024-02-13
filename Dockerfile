@@ -28,27 +28,27 @@ RUN mkdir /lora && mkdir /Embeddings
 
 # Download Pixel LoRA (https://civitai.com/models/120096)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/pixel.safetensors https://civitai.com/api/download/models/135931
+    wget -q -O /lora/pixel_xl.safetensors https://civitai.com/api/download/models/135931
 
 # Download Redmond Logo LoRA (https://civitai.com/models/124609)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/product_design.safetensors https://civitai.com/api/download/models/177492
+    wget -q -O /lora/redmond_logo_xl.safetensors https://civitai.com/api/download/models/177492
 
 # Download Glass Sculptures LoRA (https://civitai.com/models/11203)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/epi_noise_offset.safetensors https://civitai.com/api/download/models/177888
+    wget -q -O /lora/glass_xl.safetensors https://civitai.com/api/download/models/177888
 
 # Download Dissolve Style LoRA (https://civitai.com/models/245889)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/277389
+    wget -q -O /lora/dissolve_xl.safetensors https://civitai.com/api/download/models/277389
 
-# Download Dissolve Style LoRA (https://civitai.com/models/122567)
+# Download Paper Cut Style LoRA (https://civitai.com/models/122567)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/133503
+    wget -q -O /lora/paper_cut_xl.safetensors https://civitai.com/api/download/models/133503
 
 # Download Tshirt design LoRA (https://civitai.com/models/122567)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/178022
+    wget -q -O /lora/tshirt_xl.safetensors https://civitai.com/api/download/models/178022
 
 # Download Easy Negative Embeddings (https://civitai.com/models/7808)
 RUN apk add --no-cache wget && \
