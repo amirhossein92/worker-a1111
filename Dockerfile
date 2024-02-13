@@ -20,64 +20,35 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
     . /clone.sh clip-interrogator https://github.com/pharmapsychotic/clip-interrogator 2486589f24165c8e3b303f84e9dbbea318df83e8 && \
     . /clone.sh generative-models https://github.com/Stability-AI/generative-models 45c443b316737a4ab6e40413d7794a7f5657c19f
 
-# Download Dreamshaper v8 model
+# Download DreamShaper XL (v2 turbo) model
 RUN apk add --no-cache wget && \
-    wget -q -O /model.safetensors https://civitai.com/api/download/models/128713
+    wget -q -O /model.safetensors https://civitai.com/api/download/models/333449
 
 RUN mkdir /lora && mkdir /Embeddings
 
-# Download Detail Tweaker LoRA (https://civitai.com/models/58390)
+# Download Pixel LoRA (https://civitai.com/models/120096)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/add_detail.safetensors https://civitai.com/api/download/models/62833
+    wget -q -O /lora/pixel.safetensors https://civitai.com/api/download/models/135931
 
-# Download 3D rendering style LoRA (https://civitai.com/models/73756)
+# Download Redmond Logo LoRA (https://civitai.com/models/124609)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/3d_render_style.safetensors https://civitai.com/api/download/models/107366
+    wget -q -O /lora/product_design.safetensors https://civitai.com/api/download/models/177492
 
-# Download Anime Line Art LoRA (https://civitai.com/models/16014)
+# Download Glass Sculptures LoRA (https://civitai.com/models/11203)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/anime_outline.safetensors https://civitai.com/api/download/models/28907
+    wget -q -O /lora/epi_noise_offset.safetensors https://civitai.com/api/download/models/177888
 
-# Download Vector Illustration LoRA (https://civitai.com/models/60132)
+# Download Dissolve Style LoRA (https://civitai.com/models/245889)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/vector_illustration.safetensors https://civitai.com/api/download/models/198960
+    wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/277389
 
-# Download Ink LoRA (https://civitai.com/models/78605)
+# Download Dissolve Style LoRA (https://civitai.com/models/122567)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/ink_scenery.safetensors https://civitai.com/api/download/models/83390
+    wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/133503
 
-# Download Sticker LoRA (https://civitai.com/models/76413)
+# Download Tshirt design LoRA (https://civitai.com/models/122567)
 RUN apk add --no-cache wget && \
-    wget -q -O /lora/stickers.safetensors https://civitai.com/api/download/models/81187
-
-# Download Food Photography LoRA (https://civitai.com/models/45322)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/food_photography.safetensors https://civitai.com/api/download/models/49946
-
-# Download Oil Brush LoRA (https://civitai.com/models/84542)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/oil_brush.safetensors https://civitai.com/api/download/models/94277
-
-# Download Pixel LoRA (https://civitai.com/models/44960)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/pixel.safetensors https://civitai.com/api/download/models/52870
-
-# Download Product Design LoRA (https://civitai.com/models/58247)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/product_design.safetensors https://civitai.com/api/download/models/62704
-
-# Download Epi Noise Offset LoRA (https://civitai.com/models/13941)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/epi_noise_offset.safetensors https://civitai.com/api/download/models/16576?type=Model&format=SafeTensor&size=full&fp=fp16
-
-# Download Better eyes, face and skin LoRA (https://civitai.com/models/51430)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/better_eyes_face.safetensors https://civitai.com/api/download/models/55905
-
-# Download Kids Illustration LoRA (https://civitai.com/models/60724)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/67980?type=Model&format=SafeTensor
-
+    wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/178022
 
 # Download Easy Negative Embeddings (https://civitai.com/models/7808)
 RUN apk add --no-cache wget && \

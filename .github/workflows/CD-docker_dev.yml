@@ -3,7 +3,7 @@ name: CD | Dev Docker Image
 on:
   push:
     branches:
-      - "main"
+      - "xl"
 
 jobs:
   docker:
@@ -32,4 +32,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_REPO }}/${{ secrets.DOCKERHUB_IMG }}:dev
+          tags: ${{ secrets.DOCKERHUB_REPO }}/${{ secrets.DOCKERHUB_IMG }}:dev-xl
