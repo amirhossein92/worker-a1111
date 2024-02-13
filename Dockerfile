@@ -22,7 +22,7 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
 
 # Download Dreamshaper v8 model
 RUN apk add --no-cache wget && \
-    wget -q -O /model.safetensors https://civitai.com/api/download/models/128713
+    wget -q -O /model.safetensors https://civitai.com/api/download/models/131004
 
 RUN mkdir /lora && mkdir /Embeddings
 
