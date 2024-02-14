@@ -22,7 +22,7 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
 
 # Download DreamShaper XL (v2 turbo) model
 RUN apk add --no-cache wget && \
-    wget -q -O /model.safetensors https://civitai.com/api/download/models/333449
+    wget -q -O /model.safetensors https://huggingface.co/Lykon/dreamshaper-xl-v2-turbo/resolve/main/DreamShaperXL_Turbo_V2-SFW.safetensors?download=true
 
 RUN mkdir /lora && mkdir /Embeddings
 
