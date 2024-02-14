@@ -45,7 +45,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN export COMMANDLINE_ARGS="--skip-torch-cuda-test --precision full --no-half"
+RUN export COMMANDLINE_ARGS="--skip-torch-cuda-test --no-half"
 RUN export TORCH_COMMAND='pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/rocm5.6'
 
 RUN apt-get update && \
