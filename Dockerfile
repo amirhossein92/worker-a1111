@@ -26,42 +26,9 @@ RUN apk add --no-cache wget && \
 
 RUN mkdir /lora && mkdir /Embeddings
 
-# Download Pixel LoRA (https://civitai.com/models/120096)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/pixel_xl.safetensors https://civitai.com/api/download/models/135931
-
 # Download Redmond Logo LoRA (https://civitai.com/models/124609)
 RUN apk add --no-cache wget && \
     wget -q -O /lora/redmond_logo_xl.safetensors https://civitai.com/api/download/models/177492
-
-# Download Glass Sculptures LoRA (https://civitai.com/models/11203)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/glass_xl.safetensors https://civitai.com/api/download/models/177888
-
-# Download Dissolve Style LoRA (https://civitai.com/models/245889)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/dissolve_xl.safetensors https://civitai.com/api/download/models/277389
-
-# Download Paper Cut Style LoRA (https://civitai.com/models/122567)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/paper_cut_xl.safetensors https://civitai.com/api/download/models/133503
-
-# Download Tshirt design LoRA (https://civitai.com/models/122567)
-RUN apk add --no-cache wget && \
-    wget -q -O /lora/tshirt_xl.safetensors https://civitai.com/api/download/models/178022
-
-# Download Easy Negative Embeddings (https://civitai.com/models/7808)
-RUN apk add --no-cache wget && \
-    wget -q -O /Embeddings/easynegative.safetensors https://civitai.com/api/download/models/9208?type=Model&format=SafeTensor&size=full&fp=fp16
-
-# Download Fast Negative Embeddings (https://civitai.com/models/71961)
-RUN apk add --no-cache wget && \
-    wget -q -O /Embeddings/FastNegativeV2.pt https://civitai.com/api/download/models/94057?type=Model&format=PickleTensor
-
-# Download Beyond Negative Embeddings (https://civitai.com/models/108821)
-RUN apk add --no-cache wget && \
-    wget -q -O /Embeddings/Beyondv4-neg.pt https://civitai.com/api/download/models/301684
-
 
 # ---------------------------------------------------------------------------- #
 #                        Stage 3: Build the final image                        #
