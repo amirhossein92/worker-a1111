@@ -78,6 +78,22 @@ RUN apk add --no-cache wget && \
 RUN apk add --no-cache wget && \
     wget -q -O /lora/kids_illustration.safetensors https://civitai.com/api/download/models/67980?type=Model&format=SafeTensor
 
+# Download Dissolve Style LoRA (https://civitai.com/models/245889)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/dissolve_style.safetensors https://civitai.com/api/download/models/314246?type=Model&format=SafeTensor
+    
+# Download Fractal Geometry LoRA (https://civitai.com/models/269592)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/fractal_geometry.safetensors https://civitai.com/api/download/models/314363?type=Model&format=SafeTensor
+
+# Download Glitch LoRA (https://civitai.com/models/278650)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/glitch.safetensors https://civitai.com/api/download/models/322748?type=Model&format=SafeTensor
+
+# Download Cyberpunk LoRA (https://civitai.com/models/77121)
+RUN apk add --no-cache wget && \
+    wget -q -O /lora/cyberpunk.safetensors https://civitai.com/api/download/models/81907?type=Model&format=SafeTensor
+
 
 # Download Easy Negative Embeddings (https://civitai.com/models/7808)
 RUN apk add --no-cache wget && \
@@ -90,6 +106,10 @@ RUN apk add --no-cache wget && \
 # Download Beyond Negative Embeddings (https://civitai.com/models/108821)
 RUN apk add --no-cache wget && \
     wget -q -O /Embeddings/Beyondv4-neg.pt https://civitai.com/api/download/models/301684
+
+# Download Civitai Safe Helper Embeddings (https://civitai.com/models/99890)
+RUN apk add --no-cache wget && \
+    wget -q -O /Embeddings/civit_nsfw.pt https://civitai.com/api/download/models/106916
 
 
 # ---------------------------------------------------------------------------- #
