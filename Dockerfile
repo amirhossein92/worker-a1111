@@ -145,6 +145,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 #&& \ pip install -r requirements_versions.txt
 
 RUN git clone https://github.com/w-e-w/sd-webui-nudenet-nsfw-censor extensions/sd-webui-nudenet-nsfw-censor
+RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-nsfw-censor extensions/stable-diffusion-webui-nsfw-censor
 
 COPY --from=download /repositories/ ${ROOT}/repositories/
 COPY --from=download /model.safetensors /model.safetensors
