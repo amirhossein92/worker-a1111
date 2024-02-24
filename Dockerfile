@@ -144,6 +144,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     git reset --hard ${SHA}
 #&& \ pip install -r requirements_versions.txt
 
+RUN git clone https://github.com/w-e-w/sd-webui-nudenet-nsfw-censor extensions/sd-webui-nudenet-nsfw-censor
+
 COPY --from=download /repositories/ ${ROOT}/repositories/
 COPY --from=download /model.safetensors /model.safetensors
 COPY --from=download /lora ${ROOT}/models/Lora
