@@ -24,7 +24,12 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
 RUN apk add --no-cache wget && \
     wget -q -O /model.safetensors https://civitai.com/api/download/models/128713
 
-RUN mkdir /lora && mkdir /Embeddings
+RUN mkdir /lora && mkdir /Embeddings && mkdir /VAE
+
+# Download Stable diffusion VAE EMA
+RUN apk add --no-cache wget && \
+    wget -q -O /VAE/model.vae.safetensors https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors?download=true
+
 
 # Download Detail Tweaker LoRA (https://civitai.com/models/58390)
 RUN apk add --no-cache wget && \
@@ -151,6 +156,8 @@ COPY --from=download /repositories/ ${ROOT}/repositories/
 COPY --from=download /model.safetensors /model.safetensors
 COPY --from=download /lora ${ROOT}/models/Lora
 COPY --from=download /Embeddings ${ROOT}/embeddings
+COPY --from=download /VAE /
+
 RUN mkdir ${ROOT}/interrogate && cp ${ROOT}/repositories/clip-interrogator/data/* ${ROOT}/interrogate
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install -r ${ROOT}/repositories/CodeFormer/requirements.txt
