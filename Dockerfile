@@ -28,7 +28,7 @@ RUN mkdir /lora && mkdir /Embeddings && mkdir /VAE
 
 # Download Stable diffusion VAE MSE
 RUN apk add --no-cache wget && \
-    wget -q -O /VAE/model.vae.safetensors https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors?download=true
+    wget -q -O /VAE/sd-v1.5.vae.pt https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.ckpt?download=true
 
 
 # Download Detail Tweaker LoRA (https://civitai.com/models/58390)
@@ -156,7 +156,7 @@ COPY --from=download /repositories/ ${ROOT}/repositories/
 COPY --from=download /model.safetensors /model.safetensors
 COPY --from=download /lora ${ROOT}/models/Lora
 COPY --from=download /Embeddings ${ROOT}/embeddings
-COPY --from=download /VAE /models/VAE
+COPY --from=download /VAE ${ROOT}/models/VAE
 
 RUN mkdir ${ROOT}/interrogate && cp ${ROOT}/repositories/clip-interrogator/data/* ${ROOT}/interrogate
 RUN --mount=type=cache,target=/root/.cache/pip \
